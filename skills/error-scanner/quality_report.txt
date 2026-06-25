@@ -1,0 +1,25 @@
+﻿========================================
+  Skill Quality Gate Report
+========================================
+Skill: C:\Users\lixin\.openclaw\skills\error-scanner\SKILL.md
+Time:  2026-05-25 02:17:52
+
+[PASS] Principle 1: Single Responsibility
+      -> OK - single responsibility
+[PASS] Principle 2: SOP-style Execution
+      -> OK - SOP structure present
+[PASS] Principle 3: Tool Boundaries
+      -> has deniedTools declaration; has tools declaration
+[PASS] Principle 4: Dependency Declaration
+      -> has requires declaration; has configPaths
+[PASS] Principle 5: Progressive Disclosure
+      -> description length OK; has triggers; body size reasonable (5375bytes)
+[PASS] Principle 6: Idempotency
+      -> idempotency OK
+[PASS] Principle 7: Test-First
+      -> test cases: test-error-scanner.ps1
+
+----------------------------------------
+Summary: 7/7 passed, 0/7 failed
+Verdict: ALL PASS - skill can enter staging
+========================================

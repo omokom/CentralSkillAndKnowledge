@@ -1,0 +1,21 @@
+# Quality Report — knowledge-pipeline v1.0.0
+
+## 7 Golden Principles Check
+
+| # | 原则 | 状态 | 备注 |
+|---|------|:----:|------|
+| 1 | 单一职责 | ✅ | 只做"知识沉淀管道"一件事 |
+| 2 | 执行规程化 | ✅ | 6 步流程明确，每步有输入/输出 |
+| 3 | 显式声明边界 | ✅ | deniedTools 列明，depends_on 声明 |
+| 4 | 声明依赖 | ✅ | depends_on: agent-file-update |
+| 5 | 渐进式披露 | ✅ | frontmatter 描述完整 |
+| 6 | 幂等性 | ✅ | 笔记写入幂等，归档检查幂等 |
+| 7 | 测试先行 | ✅ | 验证方式节含测试命令 |
+
+## MECE Check
+- 无重复：与现有 skills/ 中无同名或相似技能
+- 与 audit-skill 不冲突（audit 做失败分析，本技能做日常知识沉淀）
+- 与 skill-evolver 不冲突（evolver 做技能进化，本技能做知识条目升级）
+
+## 结论
+✅ ALL PASS — 可发布

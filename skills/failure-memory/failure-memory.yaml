@@ -1,0 +1,6 @@
+- date: "2026-05-25T03:56~04:04+08:00"
+  context: "子代理并发创建SKILL.md超时导致session锁死"
+  summary: "并发子代理(2个)sessions_spawn全部超时后，session.jsonl.lock未释放，主Agent连续两次启动均因锁超时(60s)失败"
+  root_cause: "子代理(pid=15524)持有的session.jsonl.lock在超时后未正确释放。主Agent重试时文件独占锁等待60000ms超时"
+  fix: "用户手动重发指令绕过锁阻塞。改进方向：①子代理设置合理timeoutSeconds(如120s)配合超时提前终止；②锁冲突时增加重试间隔(1s→5s)给释放窗口；③考虑O_EXCL/O_NONBLOCK语义避免完全阻塞"
+  evidence: "Agent failed before reply: session file locked (timeout 60000ms): pid=15524 C:\\Users\\lixin\\.openclaw\\agents\\main\\sessions\\3f9e5cc4-74f1-4b87-8c69-10697fcbd84e.jsonl.lock"
