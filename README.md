@@ -11,10 +11,10 @@
 
 | 包含 | 不包含 |
 |------|--------|
-| ✅ 26 个工程化 skill 的源文件 | ❌ 任何具体业务代码 |
-| ✅ 一份 Agent 行为规范模板 | ❌ 任何 Agent 角色/性格/人设 |
-| ✅ 仓库结构说明 + 引用方式 | ❌ 任何运行时配置 |
-| ✅ MIT 协议 | ❌ 任何品牌/logo/水印 |
+| ? 21 个工程化 skill 的源文件（+ 9 个 superpowers 内置子 skill） | ? 任何具体业务代码 |
+| ? 一份 Agent 行为规范模板 | ? 任何 Agent 角色/性格/人设 |
+| ? 仓库结构说明 + 引用方式 | ? 任何运行时配置 |
+| ? MIT 协议 | ? 任何品牌/logo/水印 |
 
 **没有"谁家的 Agent 模板"——你 fork 之后自己改，改完就是你的。**
 
@@ -27,11 +27,11 @@ CentralSkillAndKnowledge/
 ├── README.md                ← 本文件
 ├── AGENTS.template.md       ← Agent 行为规范模板（复制后改名 AGENTS.md）
 ├── LICENSE                  ← MIT
-└── skills/                  ← 26 个 skill 的源文件集合
+└── skills/                  ← 21 个 skill 的源文件集合
 ```
 
 每个 skill 是一个独立目录，含 `SKILL.md`（入口）和必要的辅助文件。
-完整 skill 清单见 [域 3：Skill 索引](#域-3skill-索引)。
+完整 skill 清单见 [域 3：Skill 索引](#域3skill-索引)。
 
 ---
 
@@ -92,15 +92,18 @@ cp AGENTS.template.md AGENTS.md
 在单 Agent 起步基础上**额外启用**：
 
 - `gbrain-ops`（gbrain 运维）
+- `multi_search`（多源搜索参考）
 
-> 已废弃（不放入仓库）：
-> - 知识类 5 个：`knowledge` / `knowledge-pipeline` / `knowledge-searcher` / `knowledge-precipitator` / `ontology`（功能由 `gbrain-skill` + `multi_search` + AGENTS.md 门禁 5 复盘总结覆盖）
-> - 多 Agent 集群 4 个：`agent-team-orchestration` / `longtask-orchestrator` / `humanizer` / `writing-polish`（单 Agent 起步不需要；多 Agent 场景属于另一条路径，本仓库暂不收录）
+### 审计/反思增强
 
-### Skill 自演化场景
+- `audit-skill`（v3）— 统一替代 agent-reflection + error-scanner + failure-memory，覆盖任务后审计、错误扫描、模式记录、反思复盘
 
-- `skill-evolver` + `skill-judge` + `skill-evolution-approval`（提案/评审/批准三件套）
-- `auto-generated`（自动生成的 skill 占位）
+### 写作/内容产出
+
+- `writing-polish`（中文润色）
+- `humanizer`（去 AI 味）
+- `story-master`（剧情生成管道）
+- `character-creator-pro`（角色设计）
 
 ---
 
@@ -110,51 +113,69 @@ cp AGENTS.template.md AGENTS.md
 
 | Skill | 用途 | 是否必装 |
 |-------|------|---------|
-| `superpowers` | 9 个核心流程 skill 的元库（brainstorming/writing-plans/executing-plans/TDD/systematic-debugging/verification-before-completion 等） | ✅ 必装 |
-| `openclaw-superpowers` | OpenClaw runtime 对 superpowers 的包装 | ⚪ OpenClaw 用户必装 |
-| `gbrain-skill` | gbrain 知识库入口（写/读/查重/补链） | ✅ 必装 |
-| `gbrain-ops` | gbrain 运维（embed 推进、worker 拉起、doctor 巡检） | ⚪ 用 gbrain 才装 |
-| `task-planner` | 任务规划/拆解 | ✅ 建议装 |
+| `superpowers` | 9 个核心流程 skill 的元库（brainstorming/writing-plans/executing-plans/TDD/systematic-debugging/verification-before-completion 等） | ? 必装 |
+| `openclaw-superpowers` | OpenClaw runtime 对 superpowers 的包装 | ? OpenClaw 用户必装 |
+| `gbrain-skill` | gbrain 知识库入口（写/读/查重/补链） | ? 必装 |
+| `gbrain-ops` | gbrain 运维（embed 推进、worker 拉起、doctor 巡检） | ? 用 gbrain 才装 |
+| `task-planner` | 任务规划/拆解 | ? 建议装 |
+| `skill-judge`（v3） | 技能化判定引擎（六维评分 + 路由 + 审批合一） | ? 需要技能自演化时装 |
 
-> v1.2.0 移除：`agent-team-orchestration` / `longtask-orchestrator`（多 Agent 集群路径不属于本仓库范围）
-
-### 域 3.2 知识相关（精简后）
-
-> **v1.1.0 起**：原 6 个 knowledge skill 精简为 2 个。删除 `knowledge` / `knowledge-pipeline` / `knowledge-searcher` / `knowledge-precipitator` / `ontology` —— 功能已被 `gbrain-skill` + `multi_search` + AGENTS.md 门禁 5 复盘总结覆盖。
+### 域 3.2 知识相关
 
 | Skill | 用途 | 是否必装 |
 |-------|------|---------|
-| `gbrain-skill` | gbrain 知识库入口（写/读/查重/补链） | ✅ 必装 |
-| `gbrain-ops` | gbrain 运维（embed 推进、worker 拉起、doctor 巡检） | ⚪ 用 gbrain 才装 |
+| `gbrain-skill` | gbrain 知识库入口（写/读/查重/补链） | ? 必装 |
+| `gbrain-ops` | gbrain 运维（embed 推进、worker 拉起、doctor 巡检） | ? 用 gbrain 才装 |
+| `multi_search` | 多源搜索参考（LCM + wiki + gbrain 三层检索概览） | ? 参考型 |
 
-### 域 3.3 文本产出
-
-| Skill | 用途 |
-|-------|------|
-| `prompt-architect` | Prompt 工程化 |
-
-> v1.2.0 移除：`humanizer` / `writing-polish`（单 Agent 起步不需要）
-
-### 域 3.4 Skill 自演化
+### 域 3.3 工具类
 
 | Skill | 用途 |
 |-------|------|
-| `skill-evolver` | 技能提案生成 |
-| `skill-judge` | 技能质量评分 |
-| `skill-evolution-approval` | 技能提案批准 |
-| `auto-generated` | 自动生成的 skill 占位 |
+| `tavily-search` | Web 搜索（Tavily API 包装） |
+| `c-support` | C 语言支持库（AST 解析/CMake/测试生成） |
+| `cli-hub-meta-skill` | CLI-Hub 工具发现市场 |
+
+### 域 3.4 写作与内容
+
+| Skill | 用途 |
+|-------|------|
+| `writing-polish` | 中文写作润色 |
+| `humanizer` | 去 AI 写作痕迹 |
+| `story-master` | 剧情生成管道（连续剧集/图谱管理/双确认） |
+| `character-creator-pro` | 角色设计工具 |
+| `game-developer-skill` | 游戏开发知识参考（Unity/Unreal/ECS） |
 
 ### 域 3.5 Agent 自省与纪律
 
 | Skill | 用途 |
 |-------|------|
+| **`audit-skill`（v3）** | **任务后审计 + 自愈（统一替代 agent-reflection + error-scanner + failure-memory）** |
 | `agent-file-update` | agent 自身文件更新流程 |
-| `agent-reflection` | agent 复盘/自省 |
-| `audit-skill` | 审计（违规检测） |
-| `error-scanner` | 错误扫描 |
-| `failure-memory` | 失败记忆（教训库） |
-| `backup-discipline` | 备份纪律 |
-| `file-organization-standards` | 文件组织规范 |
+| `file-organization-standards` | 文件组织与项目维护规范 |
+| `resource-escalation` | 资源/工具缺失上报机制 |
+
+> v1.4.0 重构：`agent-reflection`、`error-scanner`、`failure-memory` 功能合入 `audit-skill` v3；`backup-discipline` 移除（备份纪律由 `agent-file-update` 的 5 步流程覆盖）。
+
+### 域 3.6 运维与环境
+
+| Skill | 用途 |
+|-------|------|
+| `multica-ops` | Multica Agent Runtime 操作手册 |
+| `memory-setup-openclaw` | OpenClaw 记忆设置指南 |
+
+### 域 3.7 废弃/不再收录
+
+以下 skill 曾在早期版本出现但已移除，本仓库不再维护：
+
+| Skill | 移除版本 | 替代/原因 |
+|-------|---------|-----------|
+| `knowledge` / `knowledge-pipeline` / `knowledge-searcher` / `knowledge-precipitator` / `ontology` | v1.1.0 | 被 `gbrain-skill` + `multi_search` + 门禁 5 复盘覆盖 |
+| `agent-team-orchestration` / `longtask-orchestrator` | v1.2.0 | 多 Agent 集群路径，本仓库不收录 |
+| `humanizer` / `writing-polish` | v1.2.0 → **v1.4.0 恢复** | 单 Agent 也有润色需求，重新加入 |
+| `agent-reflection` / `error-scanner` / `failure-memory` / `backup-discipline` | v1.4.0 | 功能合入 `audit-skill` v3 |
+| `skill-evolver` / `skill-evolution-approval` | v1.4.0 | 功能合入 `skill-judge` v3 |
+| `prompt-architect` / `auto-generated` / `staging` | v1.4.0 | 精简维护范围 |
 
 ---
 
@@ -186,7 +207,7 @@ cp AGENTS.template.md AGENTS.md
 
 ## 域 5：贡献指南（轻量版）
 
-- 提交新 skill：在 `skills/<your-skill>/` 下建 `SKILL.md`，写明 `name/description/when-to-use/how-to-apply`
+- 提交新 skill：在 `skills/<your-skill>/` 下建 `SKILL.md`，写明 `name/description/when-to-use/how-to-apply`，**确保 frontmatter 包含 type/tags/related/source 四字段**
 - 提交模板改进：改 `AGENTS.template.md` 时**保持 TODO 化策略**——不要把任何"具体人设"硬编码进模板
 - 提交 issue：描述你的使用场景 + 卡在哪一步 + 期望 vs 实际
 
@@ -195,9 +216,12 @@ cp AGENTS.template.md AGENTS.md
 ## 域 6：版本
 
 - v1.0.0（2026-06-25）：初版，26 个 skill + AGENTS 模板 + README
-- v1.1.0（2026-06-25）：精简知识类 skill，26 → 21；废弃 `knowledge` / `knowledge-pipeline` / `knowledge-searcher` / `knowledge-precipitator` / `ontology`
-- v1.2.0（2026-06-25）：精简多 Agent 集群 + 文本润色，21 → 17；移除 `agent-team-orchestration` / `longtask-orchestrator` / `humanizer` / `writing-polish`（单 Agent 起步不需要）
-- 后续遵循 semver；破坏性改动走 major 版本
+- v1.1.0（2026-06-25）：精简知识类 skill，26 → 21
+- v1.2.0（2026-06-25）：精简多 Agent 集群 + 文本润色，21 → 17
+- v1.3.0（2026-06-25）：本地 25 个 skill 扫描 + 决策（仓库版本未更新）
+- **v1.4.0（2026-06-26）：Skill 重构——7 删、12 增、8 改，全部 frontmatter 标准化**
+
+后续遵循 semver；破坏性改动走 major 版本。
 
 ---
 
