@@ -36,6 +36,10 @@ metadata:
       - gateway
       - cron
       - sessions_spawn
+type: workflow
+tags: [organization, file-management, standards, cleanup]
+related: [[[task-planner]], [[audit-skill]]]
+source: "main agent - workspace standards"
 ---
 
 # 📁 File Organization Standards — 文件组织与项目维护规范

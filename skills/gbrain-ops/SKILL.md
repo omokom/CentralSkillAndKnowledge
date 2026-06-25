@@ -48,6 +48,10 @@ metadata:
       - "大规模嵌入 OOM (1000+ 页) → 每日 cron 增量补齐"
       - "子代理模型默认 google/gemini 无 key → gbrain config set subagent_model custom-2/deepseek-v4-flash-beta"
       - "载荷超限 → 单次嵌入 ≤7KB 拆分"
+type: workflow
+tags: [gbrain, knowledge-engine, embedding, sync]
+related: [[[gbrain-skill]], [[multi_search]]]
+source: "main agent - gbrain operations"
 ---
 
 # 🧠 GBrain Ops — GBrain 知识引擎操作手册

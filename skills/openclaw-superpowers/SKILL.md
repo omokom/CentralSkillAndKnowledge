@@ -28,6 +28,10 @@ metadata:
       - gateway
     configPaths: ["~/.openclaw/skills/openclaw-superpowers/"]
 
+type: workflow
+tags: [execution, task-dispatch, subagent, tactical]
+related: [[[task-planner]], [[skill-judge]]]
+source: "main agent - task execution engine, companion to superpowers"
 ---
 
 # OpenClaw Superpowers — 战术执行引擎

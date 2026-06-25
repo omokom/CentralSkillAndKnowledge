@@ -41,6 +41,10 @@ metadata:
       files: ["Multica Agent Config (DB)"]
       depends_on: []
       depended_by: ["所有 Agent 任务执行"]
+type: workflow
+tags: [agent-config, multica, backup, update]
+related: [[[audit-skill]], [[gbrain-skill]]]
+source: "main agent - Multica agent config workflow"
 ---
 
 # 📝 Agent File Update (Multica) — Agent 配置更新流程

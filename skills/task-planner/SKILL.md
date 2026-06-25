@@ -23,6 +23,10 @@ metadata:
       - gateway
       - cron
     configPaths: ["~/.openclaw/skills/task-planner/"]
+type: workflow
+tags: [planning, task-decomposition, milestones, strategy]
+related: [[[openclaw-superpowers]], [[skill-judge]]]
+source: "main agent - task planning workflow"
 ---
 
 # Task Planner — 战略规划技能
