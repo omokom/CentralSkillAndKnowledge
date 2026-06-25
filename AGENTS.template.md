@@ -119,8 +119,6 @@ CentralSkillAndKnowledge/
     ├── openclaw-superpowers/
     ├── gbrain-skill/       ← gbrain 知识库入口
     ├── gbrain-ops/         ← gbrain 运维
-    ├── agent-team-orchestration/
-    ├── longtask-orchestrator/
     ├── task-planner/
     ├── prompt-architect/
     ├── humanizer/
@@ -137,6 +135,9 @@ CentralSkillAndKnowledge/
     ├── backup-discipline/
     └── file-organization-standards/
 ```
+
+> **v1.2.0 移除**（不在本仓库）：`agent-team-orchestration` / `longtask-orchestrator` / `humanizer` / `writing-polish`
+> 仓库当前 17 个 skill。v1.0.0 推 26，v1.1.0 减至 21，v1.2.0 减至 17。
 
 ---
 
