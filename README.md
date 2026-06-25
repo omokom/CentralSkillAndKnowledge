@@ -1,9 +1,7 @@
 # CentralSkillAndKnowledge
 
-> **去中心化的 Agent skill 和知识管理平台**
-> 一个可被引用、可被克隆、可被裁剪的 Agent 工程化 skill 集合。
 
-本仓库面向**所有想用一套成熟 Agent 工程规范**的人——从单 Agent 跑个人项目，到多 Agent 协作做复杂工作流，都能从这里取用。
+本仓库面向**所有想用一套成熟 Agent 工程规范**的人——单 Agent 跑个人项目。
 
 ---
 
