@@ -103,9 +103,10 @@ cp AGENTS.template.md AGENTS.md
 在单 Agent 起步基础上**额外启用**：
 
 - `gbrain-ops`（gbrain 运维）
-- `knowledge-pipeline` / `knowledge-searcher` / `knowledge-precipitator`（知识管道）
-- `ontology`（本体建模）
 - `humanizer` + `writing-polish`（产出文本润色）
+
+> 已废弃（不放入仓库）：`knowledge` / `knowledge-pipeline` / `knowledge-searcher` / `knowledge-precipitator` / `ontology`
+> 原因：知识沉淀/检索能力已由 `gbrain-skill` + `multi_search`（lcm + wiki_search + gbrain 三路并行）+ AGENTS.md 门禁 5 复盘总结覆盖；本体建模不在当前 Agent 主力范围。
 
 ### Skill 自演化场景
 
@@ -128,15 +129,14 @@ cp AGENTS.template.md AGENTS.md
 | `longtask-orchestrator` | 长任务跨会话状态 | ⚪ 任务 ≥3 步才装 |
 | `task-planner` | 任务规划/拆解 | ✅ 建议装 |
 
-### 域 3.2 知识管道
+### 域 3.2 知识相关（精简后）
 
-| Skill | 用途 |
-|-------|------|
-| `knowledge-pipeline` | 知识管道主控 |
-| `knowledge-searcher` | 多源知识检索 |
-| `knowledge-precipitator` | 知识沉淀（事实/规则提炼） |
-| `knowledge` | 知识库通用操作 |
-| `ontology` | 本体建模 |
+> **v1.1.0 起**：原 6 个 knowledge skill 精简为 2 个。删除 `knowledge` / `knowledge-pipeline` / `knowledge-searcher` / `knowledge-precipitator` / `ontology` —— 功能已被 `gbrain-skill` + `multi_search` + AGENTS.md 门禁 5 复盘总结覆盖。
+
+| Skill | 用途 | 是否必装 |
+|-------|------|---------|
+| `gbrain-skill` | gbrain 知识库入口（写/读/查重/补链） | ✅ 必装 |
+| `gbrain-ops` | gbrain 运维（embed 推进、worker 拉起、doctor 巡检） | ⚪ 用 gbrain 才装 |
 
 ### 域 3.3 文本产出
 
@@ -206,6 +206,7 @@ cp AGENTS.template.md AGENTS.md
 ## 域 6：版本
 
 - v1.0.0（2026-06-25）：初版，26 个 skill + AGENTS 模板 + README
+- v1.1.0（2026-06-25）：精简知识类 skill，26 → 21；废弃 `knowledge` / `knowledge-pipeline` / `knowledge-searcher` / `knowledge-precipitator` / `ontology`，功能由 `gbrain-skill` + `multi_search` 覆盖
 - 后续遵循 semver；破坏性改动走 major 版本
 
 ---

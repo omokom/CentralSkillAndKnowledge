@@ -122,11 +122,6 @@ CentralSkillAndKnowledge/
     ├── agent-team-orchestration/
     ├── longtask-orchestrator/
     ├── task-planner/
-    ├── knowledge-pipeline/
-    ├── knowledge-searcher/
-    ├── knowledge-precipitator/
-    ├── knowledge/
-    ├── ontology/
     ├── prompt-architect/
     ├── humanizer/
     ├── writing-polish/
@@ -150,3 +145,5 @@ CentralSkillAndKnowledge/
 > 2. 填完所有 `<!-- TODO -->` 标记
 > 3. 在你的 Agent runtime 里把仓库路径加进 skill 搜索目录
 > 4. 按"Superpowers Skills 调用表"的"时机"列，触发对应 skill
+>
+> **Skill 数量说明**：仓库当前 21 个 skill。v1.0.0 推 26 个，v1.1.0 精简为 21 —— 废弃了 5 个知识类 skill（`knowledge` / `knowledge-pipeline` / `knowledge-searcher` / `knowledge-precipitator` / `ontology`），理由是功能已被 `gbrain-skill` + `multi_search` + AGENTS.md 门禁 5 复盘总结覆盖。
