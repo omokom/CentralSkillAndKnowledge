@@ -1,2 +1,2 @@
 # CentralSkillAndKnowledge
-去中心化的skill和知识管理平台
+通用的lopp skill和向量库
